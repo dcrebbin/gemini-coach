@@ -1,38 +1,56 @@
+<style>
+  .bard-gradient {
+    background: linear-gradient(90deg, #cf8d7c, #a77cb4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
+
 <main class="text-white h-full flex flex-col gap-3 font-sans">
-  <div class="w-full h-14 p-2 pl-8">
+  <div class="w-full h-20 p-2 pl-8 flex">
     <div class="flex items-center gap-2">
       <h1 class="text-2xl text-white/65">Coach</h1>
-      <div class="border-blue-400 text-[#788DAF] flex items-center border-solid px-[4px] font-mono p-[2px] border rounded-md">
+      <div
+        class="border-blue-400 text-[#788DAF] flex items-center border-solid px-[4px] font-mono p-[2px] border rounded-md"
+      >
         <h2 class="text-xs">Powered by Gemini</h2>
       </div>
     </div>
   </div>
   <div class="bg-[#131314] h-full mx-20 p-8 rounded-[2rem] mb-10 px-32 flex">
-    <div
-      class="w-full bg-red-400 h-full flex flex-col justify-start items-start"
-    >
-      <input
-        type="text"
-        class="w-full h-10 rounded-md bg-[#1E1F20] text-white"
-        placeholder="Search"
-      />
-      <div class="flex flex-col">
-        <div>Chats</div>
-        <div>Chats</div>
-        <div>Chats</div>
-        <div>Chats</div>
-      </div>
-    </div>
-    <div class="w-[50%] h-full bg-blue-600 flex flex-col">
+    <div class="flex w-full h-full">
       <div
-        class="w-full h-full bg-green-500 p-2 flex items-center justify-center"
+        class="w-full h-full flex justify-start items-start px-10 py-3 flex-col-reverse gap-4"
       >
-        <h2 class="text-4xl font-bold">Gemini</h2>
+        <input
+          type="text"
+          class="w-full h-12 rounded-3xl p-4 bg-[#1E1F20] text-white block border-blue-400 border"
+          placeholder="Search"
+        />
+        <div class="flex flex-col gap-4 w-full">
+          <div
+            class="w-full bg-[#1E1F20] p-4 flex flex-col gap-1 rounded-2xl text-end"
+          >
+            <h2 class="bard-gradient font-bold text-2xl">Gemini</h2>
+            <div>Going good, thanks! What about you Devon?</div>
+          </div>
+          <div class="w-full bg-[#1E1F20] p-4 flex flex-col gap-1 rounded-2xl">
+            <h2 class="bard-gradient font-bold text-2xl">You</h2>
+            <div>Hey how's it going!</div>
+          </div>
+        </div>
       </div>
-      <div
-        class="w-full h-full bg-blue-500 p-2 flex items-center justify-center"
-      >
-        <h2 class="text-4xl font-bold">You</h2>
+      <div class="w-[50%] h-full bg-blue-600 flex flex-col">
+        <div
+          class="w-full h-full bg-green-500 p-2 flex items-center justify-center"
+        >
+          <h2 class="text-4xl font-bold">Gemini</h2>
+        </div>
+        <div
+          class="w-full h-full bg-blue-500 p-2 flex items-center justify-center"
+        >
+          <h2 class="text-4xl font-bold">You</h2>
+        </div>
       </div>
     </div>
   </div>
