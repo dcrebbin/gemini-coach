@@ -9,7 +9,22 @@ export class GeminiService {
     console.log('GeminiService.constructor()');
   }
 
-  sendMessage(message: string) {
+  async speechToText(uint8Array: Uint8Array) {
+    console.log('GeminiService.sendAudio()');
+    return this.http.post(
+      'http://127.0.0.1:8080/api/ai/speech-to-text',
+      {
+        audioData: [...uint8Array],
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+  }
+
+  generateMessage(message: string) {
     console.log('GeminiService.sendMessage() ' + message);
     return this.http.post('http://127.0.0.1:8080/api/ai/message', {
       message: message,
