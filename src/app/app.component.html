@@ -34,23 +34,11 @@
             <button class="px-2 right-0" (click)="sendMessage()">Send</button>
           </div>
         </form>
-        <div class="flex flex-col gap-4 w-full">
-          <div class="ml-auto flex flex-row-reverse gap-2">
-            <img
-              src="/assets/bard-icon.gif"
-              alt="Icon for Bard, by Google"
-              class="w-8 h-8 bottom-4 relative"
-            />
-            <div
-              class="bg-[#1E1F20] p-4 rounded-l-3xl rounded-br-2xl rounded-tr-md"
-            >
-              <div class="text-[#E3E3E3]">
-                Sorry to hear that Devon 😥<br />Would you like to talk about
-                it?
-              </div>
-            </div>
-          </div>
-          <div class="flex gap-2">
+        <div
+          class="flex flex-col gap-4 w-full"
+          *ngFor="let item of conversation"
+        >
+          <div class="flex gap-2" *ngIf="item.from == 'user'">
             <h2 class="bard-gradient font-bold text-2xl bottom-4 relative">
               You
             </h2>
@@ -58,11 +46,14 @@
               class="w-fit bg-[#1E1F20] p-4 flex flex-col gap-1 rounded-r-3xl rounded-bl-2xl rounded-tl-md"
             >
               <div class="text-[#E3E3E3]">
-                Not too bad but feeling a bit stressed lately
+                {{ item.message }}
               </div>
             </div>
           </div>
-          <div class="ml-auto flex flex-row-reverse gap-2">
+          <div
+            class="ml-auto flex flex-row-reverse gap-2"
+            *ngIf="item.from == 'gemini'"
+          >
             <img
               src="/assets/bard-icon.gif"
               alt="Icon for Bard, by Google"
@@ -71,7 +62,7 @@
             <div
               class="bg-[#1E1F20] p-4 rounded-l-3xl rounded-br-2xl rounded-tr-md"
             >
-              <div class="text-[#E3E3E3]">Hey Devon, how are you today? 😁</div>
+              <div class="text-[#E3E3E3]">{{item.message}}</div>
             </div>
           </div>
         </div>
