@@ -31,6 +31,10 @@ export class AppComponent {
     },
   ];
 
+  public speakMessage(index: number) {
+    alert('Speaking message: ' + this.conversation[index].message);
+  }
+
   public recordAudio() {
     alert('Recording audio...');
   }
