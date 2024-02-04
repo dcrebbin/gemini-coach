@@ -2,6 +2,7 @@
   .bard-gradient {
     background: linear-gradient(90deg, #cf8d7c, #a77cb4);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 </style>
@@ -28,31 +29,49 @@
           placeholder="Search"
         />
         <div class="flex flex-col gap-4 w-full">
-          <div
-            class="w-full bg-[#1E1F20] p-4 flex flex-col gap-1 rounded-2xl text-end"
-          >
-            <div class="flex justify-end">
-              <h2 class="bard-gradient font-bold text-2xl">Gemini</h2>
-              <img src="/assets/bard-icon.gif" class="w-8 h-8"/>
+          <div class="ml-auto flex flex-row-reverse gap-2">
+            <img
+              src="/assets/bard-icon.gif"
+              alt="Icon for Bard, by Google"
+              class="w-8 h-8 bottom-4 relative"
+            />
+            <div
+              class="bg-[#1E1F20] p-4 rounded-l-3xl rounded-br-2xl rounded-tr-md"
+            >
+              <div class="text-[#E3E3E3]">
+                Going good thanks! What about you Devon?
+              </div>
             </div>
-            <div>Going good, thanks! What about you Devon?</div>
           </div>
-          <div class="w-full bg-[#1E1F20] p-4 flex flex-col gap-1 rounded-2xl">
-            <h2 class="bard-gradient font-bold text-2xl">You</h2>
-            <div>Hey how's it going!</div>
+          <div class="flex gap-2">
+            <h2 class="bard-gradient font-bold text-2xl bottom-4 relative">
+              You
+            </h2>
+            <div
+              class="w-fit bg-[#1E1F20] p-4 flex flex-col gap-1 rounded-r-3xl rounded-bl-2xl rounded-tl-md"
+            >
+              <div class="text-[#E3E3E3]">Hey how's it going!</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="w-[50%] h-full bg-blue-600 flex flex-col">
+      <div class="w-[50%] h-full gap-4 flex flex-col">
         <div
-          class="w-full h-full bg-green-500 p-2 flex items-center justify-center"
+          class="w-full h-full bg-[#1E1F20] p-2 flex items-center justify-center rounded-2xl"
         >
-          <h2 class="text-4xl font-bold">Gemini</h2>
+          <div class="flex items-center">
+            <h2 class="text-5xl font-bold bard-gradient">Gemini</h2>
+            <img
+              src="/assets/bard-icon.gif"
+              alt="Icon for Bard, by Google"
+              class="w-10 h-10"
+            />
+          </div>
         </div>
         <div
-          class="w-full h-full bg-blue-500 p-2 flex items-center justify-center"
+          class="w-full h-full bg-[#1E1F20] p-2 flex items-center justify-center rounded-2xl"
         >
-          <h2 class="text-4xl font-bold">You</h2>
+          <h2 class="text-5xl font-bold bard-gradient">You</h2>
         </div>
       </div>
     </div>
