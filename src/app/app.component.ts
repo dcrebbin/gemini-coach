@@ -4,6 +4,7 @@ import { GeminiService } from './services/gemini.service';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -40,14 +41,14 @@ export class AppComponent {
       from: 'gemini',
     },
   ];
+  isAudioPlaying = false;
 
   public speakMessage(index: number) {
-    alert('Speaking message: ' + this.conversation[index].message);
-    const speech = new SpeechSynthesisUtterance(
-      this.conversation[index].message
-    );
-    speech.lang = 'en-US';
-    window.speechSynthesis.speak(speech);
+    const message = this.conversation[index].message;
+    this.geminiService.textToSpeech(message).subscribe((response: any) => {
+      const audio = new Audio(URL.createObjectURL(response));
+      audio.play();
+    });
   }
 
   mediaRecorder: any;
