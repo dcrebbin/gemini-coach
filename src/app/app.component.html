@@ -20,9 +20,7 @@
   </div>
   <div class="bg-[#131314] h-full mx-20 p-8 rounded-[2rem] mb-10 px-32 flex">
     <div class="flex w-full h-full">
-      <div
-        class="w-full h-full flex justify-start items-start px-10 py-3 flex-col-reverse gap-4"
-      >
+      <div class="flex flex-col-reverse w-full justify-start">
         <form [formGroup]="geminiForm" class="w-full">
           <div class="flex">
             <input
@@ -35,38 +33,43 @@
           </div>
         </form>
         <div
-          class="flex flex-col gap-4 w-full"
-          *ngFor="let item of conversation"
+          class="w-full flex justify-start items-start px-10 py-3 flex-col gap-4"
         >
-          <div class="flex gap-2" *ngIf="item.from == 'user'">
-            <h2 class="bard-gradient font-bold text-2xl bottom-4 relative">
-              You
-            </h2>
-            <div
-              class="w-fit bg-[#1E1F20] p-4 flex flex-col gap-1 rounded-r-3xl rounded-bl-2xl rounded-tl-md"
-            >
-              <div class="text-[#E3E3E3]">
-                {{ item.message }}
+          <div
+            class="flex flex-col gap-4 w-full"
+            *ngFor="let item of conversation; let i = index"
+          >
+            <div class="flex gap-2" *ngIf="item.from == 'user'">
+              <h2 class="bard-gradient font-bold text-2xl bottom-4 relative">
+                You
+              </h2>
+              <div
+                class="w-fit bg-[#1E1F20] p-4 flex flex-col gap-1 rounded-r-3xl rounded-bl-2xl rounded-tl-md"
+              >
+                <div class="text-[#E3E3E3]">
+                  {{ item.message }}
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="ml-auto flex flex-row-reverse gap-2"
-            *ngIf="item.from == 'gemini'"
-          >
-            <img
-              src="/assets/bard-icon.gif"
-              alt="Icon for Bard, by Google"
-              class="w-8 h-8 bottom-4 relative"
-            />
             <div
-              class="bg-[#1E1F20] p-4 rounded-l-3xl rounded-br-2xl rounded-tr-md"
+              class="ml-auto flex flex-row-reverse gap-2"
+              *ngIf="item.from == 'gemini'"
             >
-              <div class="text-[#E3E3E3]">{{item.message}}</div>
+              <img
+                src="/assets/bard-icon.gif"
+                alt="Icon for Bard, by Google"
+                class="w-8 h-8 bottom-4 relative"
+              />
+              <div
+                class="bg-[#1E1F20] p-4 rounded-l-3xl rounded-br-2xl rounded-tr-md"
+              >
+                <div class="text-[#E3E3E3]">{{ item.message }}</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
       <div class="w-[50%] h-full gap-4 flex flex-col">
         <div
           class="w-full h-full bg-[#1E1F20] p-2 flex items-center justify-center rounded-2xl"

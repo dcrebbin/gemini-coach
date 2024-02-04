@@ -12,10 +12,6 @@ import { NgFor, NgIf } from '@angular/common';
   styleUrl: './app.component.css',
 })
 
-// interface Message{
-//   message: string;
-//   from: string;
-// }
 export class AppComponent {
   geminiForm = new FormBuilder().group({
     geminiInput: new FormControl(''),
