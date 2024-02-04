@@ -10,11 +10,11 @@
 <main class="text-white h-full flex flex-col gap-3 font-sans">
   <div class="w-full h-20 p-2 pl-8 flex">
     <div class="flex items-center gap-2">
-      <h1 class="text-2xl text-white/65">Your Coach</h1>
+      <h1 class="text-2xl text-white/65">Gemini Coach</h1>
       <div
         class="border-blue-400 text-[#788DAF] flex items-center border-solid px-[4px] font-mono p-[2px] border rounded-md"
       >
-        <h2 class="text-xs">Powered by Gemini</h2>
+        <h2 class="text-xs">Powered by Gemini Pro</h2>
       </div>
     </div>
   </div>
@@ -23,13 +23,30 @@
       <div class="flex flex-col-reverse w-full justify-start">
         <form [formGroup]="geminiForm" class="w-full">
           <div class="flex">
-            <input
-              formControlName="geminiInput"
-              type="text"
-              class="w-full h-14 rounded-[2rem] p-4 text-white bg-transparent outline-none outline-[1px] outline-gray-400 hover:outline-white focus:outline-2 focus:outline-blue-400"
-              placeholder="Say what's on your mind 🧘🧘‍♀️"
-            />
-            <button class="px-2 right-0" (click)="sendMessage()">Send</button>
+            <div class="w-full flex relative items-center justify-center">
+              <input
+                formControlName="geminiInput"
+                type="text"
+                class="w-full relative h-14 rounded-[2rem] p-4 text-white bg-transparent outline-none outline-[1px] outline-gray-400 hover:outline-white focus:outline-2 focus:outline-blue-400"
+                placeholder="Say what's on your mind 🧘🧘‍♀️"
+              />
+              <button class="absolute right-0 p-2 mx-2 flex items-center" (click)="recordAudio()">
+                <mat-icon
+                  width="90"
+                  aria-hidden="false"
+                  aria-label="Send message to Gemini Coach"
+                  fontIcon="microphone"
+                ></mat-icon>
+              </button>
+            </div>
+            <button class="px-2 right-0 mx-2 flex items-center" (click)="sendMessage()">
+              <mat-icon
+                width="90"
+                aria-hidden="false"
+                aria-label="Send message to Gemini Coach"
+                fontIcon="send"
+              ></mat-icon>
+            </button>
           </div>
         </form>
         <div

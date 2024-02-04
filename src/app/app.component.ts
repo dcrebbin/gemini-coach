@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { GeminiService } from './services/gemini.service';
 import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { NgFor, NgIf } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, NgFor, NgIf],
+  imports: [RouterOutlet, ReactiveFormsModule, NgFor, NgIf, MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -29,6 +30,10 @@ export class AppComponent {
       from: 'gemini',
     },
   ];
+
+  public recordAudio() {
+    alert('Recording audio...');
+  }
 
   public sendMessage() {
     const message = this.geminiForm.get('geminiInput')?.value?.toString() ?? '';
