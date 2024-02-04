@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'gemini-interview-coach' title`, () => {
+  it(`should have the 'gemini-coach' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('gemini-interview-coach');
+    expect(app.title).toEqual('gemini-coach');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, gemini-interview-coach');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, gemini-coach');
   });
 });

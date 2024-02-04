@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "gemini-interview-coach": {
+    "gemini-coach": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/gemini-interview-coach",
+            "outputPath": "dist/gemini-coach",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -50,10 +50,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "gemini-interview-coach:build:production"
+              "buildTarget": "gemini-coach:build:production"
             },
             "development": {
-              "buildTarget": "gemini-interview-coach:build:development"
+              "buildTarget": "gemini-coach:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -61,7 +61,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "gemini-interview-coach:build"
+            "buildTarget": "gemini-coach:build"
           }
         },
         "test": {
