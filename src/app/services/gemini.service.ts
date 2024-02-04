@@ -11,12 +11,8 @@ export class GeminiService {
 
   sendMessage(message: string) {
     console.log('GeminiService.sendMessage() ' + message);
-    this.http
-      .post('http://127.0.0.1:8080/api/ai/message', {
-        message: message,
-      })
-      .subscribe((data) => {
-        console.log(data);
-      });
+    return this.http.post('http://127.0.0.1:8080/api/ai/message', {
+      message: message,
+    });
   }
 }

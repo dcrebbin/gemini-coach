@@ -7,11 +7,10 @@ import { NgFor, NgIf } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, NgFor,NgIf],
+  imports: [RouterOutlet, ReactiveFormsModule, NgFor, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-
 export class AppComponent {
   geminiForm = new FormBuilder().group({
     geminiInput: new FormControl(''),
@@ -37,6 +36,9 @@ export class AppComponent {
       return;
     }
     this.conversation.push({ message, from: 'user' });
-    this.geminiService.sendMessage(message);
+    this.geminiService.sendMessage(message).subscribe((response: any) => {
+      console.log(response);
+      this.conversation.push({ message: response?.message, from: 'gemini' });
+    });
   }
 }
