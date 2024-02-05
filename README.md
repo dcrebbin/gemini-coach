@@ -10,7 +10,7 @@ Gemini Coach is an stylistic recreation of [Bard](https://bard.google.com/) and 
 
 ### Setup
 
-1. Setup the Gemini Coach backend: _link to github repo_
+1. Setup the Gemini Coach backend: https://github.com/dcrebbin/gemini-coach-api
 
 2. npm i
 
