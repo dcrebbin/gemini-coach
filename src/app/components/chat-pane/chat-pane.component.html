@@ -8,7 +8,21 @@
           class="w-full relative h-14 rounded-[2rem] p-4 text-white bg-transparent outline-none outline-[1px] outline-gray-400 hover:outline-white focus:outline-2 focus:outline-blue-400"
           placeholder="Say what's on your mind 🧘🧘‍♀️"
         />
-        <button [ngClass]="microphoneClass" (click)="interactWithMicrophone()">
+        <div
+          *ngIf="waitingOnSpeechRecognition"
+          class="absolute right-0 p-2 mx-2 flex items-center"
+        >
+          <mat-icon
+            class="mr-2 animate-spin"
+            width="90"
+            fontIcon="refresh"
+          ></mat-icon>
+        </div>
+        <button
+          *ngIf="!waitingOnSpeechRecognition"
+          [ngClass]="microphoneClass"
+          (click)="interactWithMicrophone()"
+        >
           <mat-icon
             width="90"
             aria-hidden="false"
@@ -17,7 +31,18 @@
           ></mat-icon>
         </button>
       </div>
+      <div
+        *ngIf="waitingOnTextResponse"
+        class="px-2 right-0 mx-2 flex items-center"
+      >
+        <mat-icon
+          class="mr-2 animate-spin"
+          width="90"
+          fontIcon="refresh"
+        ></mat-icon>
+      </div>
       <button
+        *ngIf="!waitingOnTextResponse"
         class="px-2 right-0 mx-2 flex items-center"
         (click)="sendButton()"
       >
@@ -57,7 +82,16 @@
             alt="Icon for Bard, by Google"
             class="w-10 h-10 relative block"
           />
+          <div class="flex items-center">
+            <mat-icon
+              *ngIf="waitingOnAudio"
+              class="right-0 mr-2 animate-spin"
+              width="90"
+              fontIcon="refresh"
+            ></mat-icon>
+          </div>
           <button
+            *ngIf="!waitingOnAudio"
             class="flex items-center text-[#e8eaed]"
             (click)="speakMessage(i)"
           >

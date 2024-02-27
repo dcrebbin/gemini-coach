@@ -24,18 +24,17 @@ export class ChatPaneComponent {
 
   public conversation: any[] = [
     { message: 'Hey Devon, how are you today? 😁', from: 'gemini' },
-    { message: 'Not too bad but feeling a bit stressed lately', from: 'user' },
-    {
-      message: `Sorry to hear that Devon 😥
-      Would you like to talk about it?`,
-      from: 'gemini',
-    },
   ];
   isAudioPlaying = false;
+  waitingOnAudio = false;
+  waitingOnSpeechRecognition = false;
+  waitingOnTextResponse = false;
 
   public speakMessage(index: number) {
+    this.waitingOnAudio = true;
     const message = this.conversation[index].message;
     this.geminiService.textToSpeech(message).subscribe((response: any) => {
+      this.waitingOnAudio = false;
       const audio = new Audio(URL.createObjectURL(response));
       audio.play();
     });
@@ -69,11 +68,12 @@ export class ChatPaneComponent {
         audioChunks.push(e.data);
       };
       this.mediaRecorder.onstop = async () => {
+        this.waitingOnSpeechRecognition = true;
         const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
         const uint8Array = new Uint8Array(await audioBlob.arrayBuffer());
-
         (await this.geminiService.speechToText(uint8Array)).subscribe(
           (response: any) => {
+            this.waitingOnSpeechRecognition = false;
             this.sendMessage(response.text);
             this.changeDetectorRef.detectChanges();
           }
@@ -98,8 +98,10 @@ export class ChatPaneComponent {
       return;
     }
     this.conversation.push({ message: message, from: 'user' });
+    this.waitingOnTextResponse = true;
     this.geminiService.generateMessage(message).subscribe((response: any) => {
       console.log(response);
+      this.waitingOnTextResponse = false;
       this.conversation.push({ message: response?.message, from: 'gemini' });
       this.changeDetectorRef.detectChanges();
     });
