@@ -40,7 +40,7 @@ export class GeminiService {
 
   generateMessage(message: string) {
     console.log('GeminiService.sendMessage() ' + message);
-    return this.http.post(`${environment.apiBaseUrl}/api/ai/message`, {
+    return this.http.post(`${environment.apiBaseUrl}/ai/message`, {
       message: message,
     });
   }
