@@ -19,7 +19,7 @@ export class ChatPaneComponent {
     private geminiService: GeminiService,
     private changeDetectorRef: ChangeDetectorRef
   ) {
-    console.log('AppComponent.constructor()');
+    console.log('ChatPane.constructor()');
   }
 
   public conversation: any[] = [

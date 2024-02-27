@@ -5,8 +5,9 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './talking-heads.component.html',
-  styleUrl: './talking-heads.component.css'
 })
 export class TalkingHeadsComponent {
-
+  constructor() {
+    console.log('TalkingHeadsComponent.constructor()');
+  }
 }
