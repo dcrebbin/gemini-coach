@@ -18,9 +18,22 @@
   src: url("/assets/Roboto-Bold.ttf") format("truetype");
   font-weight: 700;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
-chat-pane{
+chat-pane {
   width: 100%;
+}
+
+.bard-gradient {
+  background: linear-gradient(90deg, #cf8d7c, #a77cb4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
