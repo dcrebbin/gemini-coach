@@ -10,6 +10,8 @@ export class GeminiService {
     console.log('GeminiService.constructor()');
   }
 
+  emojiRegex = /[\u{1F600}-\u{1F64F}]/gu;
+
   async speechToText(uint8Array: Uint8Array) {
     console.log('GeminiService.sendAudio()');
     return this.http.post(
@@ -27,10 +29,11 @@ export class GeminiService {
 
   textToSpeech(message: string) {
     console.log('GeminiService.textToSpeech()');
+    const transformedText = message.replace(this.emojiRegex, '');
     return this.http.post<Blob>(
       `${environment.apiBaseUrl}/ai/generate-audio`,
       {
-        message: message,
+        message: transformedText,
       },
       {
         responseType: 'blob' as 'json',
