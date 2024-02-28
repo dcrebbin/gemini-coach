@@ -20,6 +20,7 @@ export class ChatPaneComponent {
     private changeDetectorRef: ChangeDetectorRef
   ) {
     console.log('ChatPane.constructor()');
+    // this.speakMessage(0);
   }
 
   public conversation: any[] = [
@@ -31,11 +32,13 @@ export class ChatPaneComponent {
   waitingOnTextResponse = false;
   autoPlayAudio = true;
 
-  public speakMessage(index: number) {
+  public speakMessage(index: number) {    
     this.waitingOnAudio = true;
+    this.changeDetectorRef.detectChanges();
     const message = this.conversation[index].message;
     this.geminiService.textToSpeech(message).subscribe((response: any) => {
       this.waitingOnAudio = false;
+      this.changeDetectorRef.detectChanges();
       const audio = new Audio(URL.createObjectURL(response));
       audio.play();
     });
