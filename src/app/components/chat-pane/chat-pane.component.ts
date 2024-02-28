@@ -29,6 +29,7 @@ export class ChatPaneComponent {
   waitingOnAudio = false;
   waitingOnSpeechRecognition = false;
   waitingOnTextResponse = false;
+  autoPlayAudio = true;
 
   public speakMessage(index: number) {
     this.waitingOnAudio = true;
@@ -104,6 +105,9 @@ export class ChatPaneComponent {
       this.waitingOnTextResponse = false;
       this.conversation.push({ message: response?.message, from: 'gemini' });
       this.changeDetectorRef.detectChanges();
+      if (this.autoPlayAudio) {
+        this.speakMessage(this.conversation.length - 1);
+      }
     });
   }
 }
