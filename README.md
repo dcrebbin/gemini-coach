@@ -2,14 +2,13 @@
 
 #### <i>Powered by Gemini Pro</i>
 
-
 This is the Angular frontend for <strong>Gemini Coach</strong> - your personal AI coach, powered by <i>Gemini Pro & Vertex AI</i>.
+
+DEMO: https://www.youtube.com/watch?v=rmG4C2d9IVE
 
 <img src="your-coach.png">
 
-Original description before the Bard-Gemini rebrand:
-
-Gemini Coach is an stylistic recreation of [Bard](https://bard.google.com/) and uses the Bard logo & branding, all copyright of Alphabet Inc. (Google) 2024
+Gemini Coach is an stylistic recreation of [Bard (now Gemini)](https://bard.google.com/) and uses the Bard logo & branding, all copyright of Alphabet Inc. (Google) 2024
 
 ### Setup
 
